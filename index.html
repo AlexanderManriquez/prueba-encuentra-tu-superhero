@@ -8,6 +8,8 @@
     <script src="https://kit.fontawesome.com/6262dc69d7.js" crossorigin="anonymous"></script>
     <!-- CDN de Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- CDN Jquery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </head>
 <body class="bg-black">
     <nav class="navbar flex bg-rose-700 py-4">
@@ -19,11 +21,14 @@
         <header class="hero-section">
             <img src="./assets/img/sh1.jpg" alt="Logo de SuperHero" class="mx-auto mt-5 h-72">
         </header>
-        <form action="" class="flex flex-col">
-            <label for="inputId" class="text-slate-50 block mx-auto py-6"><i class="fa-solid fa-circle-info"></i> Ingresa el número de super héroe que deseas buscar:</label>
+        <h1 class="text-slate-50 text-center text-4xl py-4">Encuentra tu SuperHero</h1>
+        <form action="" class="flex flex-col" id="form">
+            <label for="inputId" class="text-slate-50 block mx-auto py-4"><i class="fa-solid fa-circle-info"></i> Ingresa el número de super héroe que deseas buscar:</label>
             <input type="text" class="block mx-auto rounded-xl" id="inputId">
             <button class="bg-rose-900 py-2 w-24 block mx-auto my-6 rounded-lg text-slate-50 font-semibold">Buscar</button>
         </form>
+
+        <div id="resultContainer" class="text-slate-50"></div>
     </main>
 
     <script src="./assets/js/script.js"></script>
