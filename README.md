@@ -14,3 +14,6 @@ Para desarrollar este proyecto, utilizamos:
 
 Obteniendo la información directamente desde la API: <a href="https://www.superheroapi.com/">SuperHero API</a>, le retornamos al usuario una tarjeta con la información más importante acerca del índice buscado, además mostramos un gráfico generado con CanvasJS,
 esto con el fin de mostrar al usuario la cantidad de poder del héroe 🦸‍♂️
+
+Si quieres probar este proyecto, visita el siguiente link:
+https://alexandermanriquez.github.io/prueba-encuentra-tu-superhero/
