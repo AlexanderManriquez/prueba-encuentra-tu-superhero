@@ -1,6 +1,25 @@
+const regexNumerico = /^\d+$/;
+const maxNumero = 731;
+const errorMessageElement = document.getElementById('errorMessage');
+
 document.getElementById('form').addEventListener('submit', function (event) {
     event.preventDefault();
     let ingresoUsuario = document.getElementById("inputId").value;
+
+    // Validar si el ingreso es un número
+    if (!regexNumerico.test(ingresoUsuario)) {
+        errorMessageElement.textContent = "Por favor, ingrese solo valores numéricos positivos.";
+        errorMessageElement.classList.remove('hidden');
+        return;
+    }
+
+    // Validar si el número ingresado etá en el rango permitido
+    if (parseInt(ingresoUsuario) > maxNumero) {
+        errorMessageElement.textContent = `El número debe estar entre 1 y ${maxNumero}.`;
+        errorMessageElement.classList.remove('hidden');
+        return;
+    }
+
     $("#resultContainer").datosSuperHeroes(ingresoUsuario);
 });
 
@@ -9,13 +28,12 @@ jQuery.fn.datosSuperHeroes = function (ingresoUsuario) {
     $.ajax({
         type: "GET",
         url: `https://cors-anywhere.herokuapp.com/https://superheroapi.com/api/40cf87c2ea6cc2895e8c4977345d8f03/${ingresoUsuario}`,
-        // URL modificada para usar el proxy
         dataType: "json",
         success: function (data) {
             // Limpiar el contenedor antes de mostrar resultados de una nueva consulta
             element.empty();
 
-           // Mostrar el contenedor una vez que se tiene la respuesta
+            // Mostrar el contenedor una vez que se tiene la respuesta
             $("#resultContainer").removeClass("hidden");
             $("#chartContainer").removeClass("hidden");
 
@@ -46,16 +64,16 @@ jQuery.fn.datosSuperHeroes = function (ingresoUsuario) {
                             { label: "Inteligencia", y: parseInt(powerstats.intelligence) },
                             { label: "Fuerza", y: parseInt(powerstats.strength) },
                             { label: "Velocidad", y: parseInt(powerstats.speed) },
-                            { label: "Durabilidad", y: parseInt(powerstats.durability) },
+                            { label: "Resistencia", y: parseInt(powerstats.durability) },
                             { label: "Poder", y: parseInt(powerstats.power) },
                             { label: "Combate", y: parseInt(powerstats.combat) }
                         ]
                     }]
                 });
-            
+
                 chart.render();
             }
-            
+
 
             // Crear la tarjeta con Tailwind CSS, mostrando la información importante del personaje
             let card = `
